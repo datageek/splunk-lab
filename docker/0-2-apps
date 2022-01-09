@@ -1,0 +1,64 @@
+
+FROM splunk-lab-core-1
+
+WORKDIR /tmp
+
+ARG DEPLOY
+
+COPY ${DEPLOY}/syndication-input-rssatomrdf_124.tgz /tmp/splunk-packages/
+COPY ${DEPLOY}/wordcloud-custom-visualization_111.tgz /tmp/splunk-packages/
+COPY ${DEPLOY}/slack-notification-alert_203.tgz /tmp/splunk-packages/
+COPY ${DEPLOY}/splunk-dashboard-examples_800.tgz /tmp/splunk-packages/
+COPY ${DEPLOY}/eventgen_720.tgz /tmp/splunk-packages/
+COPY ${DEPLOY}/rest-api-modular-input_198.tgz /tmp/splunk-packages/
+
+
+#
+# Install Syndication app
+# https://splunkbase.splunk.com/app/2646/
+#
+RUN tar xfvz /tmp/splunk-packages/syndication-input-rssatomrdf_124.tgz \
+	&& mv syndication /opt/splunk/etc/apps/ \
+	&& rm -fv /tmp/splunk-packages/syndication-input-rssatomrdf_124.tgz
+
+#
+# Install Rest API Modular Input
+# https://splunkbase.splunk.com/app/1546/#/details
+#
+RUN tar xfvz /tmp/splunk-packages/rest-api-modular-input_198.tgz \
+	&& mv rest_ta /opt/splunk/etc/apps/ \
+	&& rm -fv /tmp/splunk-packages/rest-api-modular-input_198.tgz 
+
+#
+# Install Wordcloud app
+# https://splunkbase.splunk.com/app/3212/
+#
+RUN tar xfvz /tmp/splunk-packages/wordcloud-custom-visualization_111.tgz \
+	&& mv wordcloud_app /opt/splunk/etc/apps/ \
+	&& rm -fv /tmp/splunk-packages/wordcloud-custom-visualization_111.tgz
+
+#
+# Install Slack Notification Alert
+# https://splunkbase.splunk.com/app/2878/
+#
+RUN tar xfvz /tmp/splunk-packages/slack-notification-alert_203.tgz \
+	&& mv slack_alerts /opt/splunk/etc/apps/ \
+	&& rm -fv /tmp/splunk-packages/slack-notification-alert_203.tgz 
+
+#
+# Install Splunk Dashboard Examples
+# https://splunkbase.splunk.com/app/1603/
+#
+RUN tar xfvz /tmp/splunk-packages/splunk-dashboard-examples_800.tgz \
+	&& mv simple_xml_examples /opt/splunk/etc/apps/ \
+	&& rm -fv /tmp/splunk-packages/splunk-dashboard-examples_800.tgz 
+
+#
+# Install Eventgen
+# https://splunkbase.splunk.com/app/1924
+#
+RUN tar xfvz /tmp/splunk-packages/eventgen_720.tgz \
+	&& mv SA-Eventgen /opt/splunk/etc/apps/ \
+	&& rm -fv /tmp/splunk-packages/eventgen_720.tgz 
+
+

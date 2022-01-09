@@ -1,0 +1,17 @@
+
+[default]
+#
+# This is the equivilent of "splunk set default-hostname" on the CLI
+#
+host = splunk-lab-%DATE%
+
+#
+# Turn on Eventgen.
+#
+[modinput_eventgen://default]
+disabled = %EVENTGEN%
+
+[monitor:///logs]
+recursive = true
+sourcetype = logs
+

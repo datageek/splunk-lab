@@ -1,0 +1,17 @@
+
+[settings]
+login_content = Login with username 'admin' and the password that was in the $SPLUNK_PASSWORD environment variable.
+
+#
+# Turn on SSL
+#
+enableSplunkWebSSL = true
+
+#
+# Set timeout for a week
+#
+tools.sessions.timeout = 10080
+
+%ssl_key%
+%ssl_cert%
+

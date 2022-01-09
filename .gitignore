@@ -1,0 +1,16 @@
+
+# Vim
+*.swp
+*~
+
+data/
+logs/
+
+# Steve Jobs
+.DS_Store
+
+!splunk-lab-app/default/data
+splunk-lab-app/local
+
+cache/
+

@@ -1,0 +1,16 @@
+
+.git/
+
+data/
+app/
+
+logs/
+*.raw
+*.log
+*.txt
+
+devel/*
+
+cache/
+!cache/deploy/
+
