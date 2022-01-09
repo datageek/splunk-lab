@@ -199,7 +199,7 @@ fi
 echo "# "
 echo "# Tagging Docker containers..."
 echo "# "
-docker tag splunk-lab dmuth1/splunk-lab
+docker tag splunk-lab datageek/splunk-lab
 docker tag splunk-lab-ml dmuth1/splunk-lab-ml
 
 echo "# Done!"

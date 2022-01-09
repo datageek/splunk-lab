@@ -35,7 +35,7 @@ else
 	echo "# "
 	echo "# Tagging container..."
 	echo "# "
-	docker tag splunk-lab dmuth1/splunk-lab
+	docker tag splunk-lab datageek/splunk-lab
 	docker tag splunk-lab-ml dmuth1/splunk-lab-ml
 
 fi

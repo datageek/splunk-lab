@@ -12,13 +12,13 @@ cd ..
 echo "# "
 echo "# Pulling containers from Docker Hub..."
 echo "# "
-docker pull dmuth1/splunk-lab
+docker pull datageej/splunk-lab
 docker pull dmuth1/splunk-lab-ml
 
 echo "# "
 echo "# Tagging containers..."
 echo "# "
-docker tag dmuth1/splunk-lab splunk-lab
+docker tag datageek/splunk-lab splunk-lab
 docker tag dmuth1/splunk-lab-ml splunk-lab-ml
 
 
